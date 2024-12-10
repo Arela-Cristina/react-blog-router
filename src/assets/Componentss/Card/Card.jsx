@@ -1,6 +1,6 @@
 import style from './Card.module.css'
 import { BASE_URI } from '../../../config'
-import placeHolderImg from '../../../../public/place-holder.jpg'
+import placeHolderImg from '../../../../src/place-holder.jpg'
 import { Link } from 'react-router-dom'
 
 export default function Card({ post = {} }) {
@@ -24,7 +24,7 @@ export default function Card({ post = {} }) {
                         <button>Save</button>
                         <button>Elimina</button>
                     </div>
-                    <Link className='link' to={`/posts/${id}`}>See more</Link>
+                    <Link  to={`posts/${id}`}>See more</Link>
                 </div>
             </div>
 

@@ -21,12 +21,12 @@ function App() {
 
             {/* ruta API */}
             <Route path="/blog">
-              <Route index Component={Index}></Route>
-              <Route path=':id' Component = {Show}></Route>
-              <Route path='create' Component = {Create}></Route>
+              <Route index element={<Index />} /> 
+              <Route path='posts/:id' element={<Show />} />
+              <Route path="create" element={<Create />} /> 
             </Route>
 
-            <Route path="*" element={<div>404 :v</div>} />
+            {/* <Route path="*" element={<div>404 :v</div>} /> */}
           </Route>
 
         </Routes >
