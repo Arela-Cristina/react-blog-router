@@ -26,7 +26,7 @@ function App() {
               <Route path='create' Component = {Create}></Route>
             </Route>
 
-
+            <Route path="*" element={<div>404 :v</div>} />
           </Route>
 
         </Routes >
