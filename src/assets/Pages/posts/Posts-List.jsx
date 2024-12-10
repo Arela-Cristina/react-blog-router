@@ -1,13 +1,49 @@
+import { useState, useEffect } from "react";
+import { BASE_URI } from "../../../config";
+import axios from "axios";
+import style from "./Posts-List.module.css"
+import Card from "../../Componentss/Card/Card";
+
+
 export default function Posts() {
 
-    // mostri l’elenco dei post che recuperiamo dal server usande le nostre API
-    
+    const [post, setPosts] = useState([]) //variabile stato - array 
+
+    //chiamata Axios
+    function fetchPosts() {
+        axios.get(`${BASE_URI}posts`)
+            .then(res => {
+                setPosts(res.data)
+                console.log('data base', res.data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+
+    useEffect(() => {
+        fetchPosts()
+    }, [])
+
     return (
         <>
+            <main>
+                <section>
+                    <div className={style.title}>
+                        <h2 className=''>Popular Brawlers</h2>
+                    </div>
+                    <div className={style.cardContainer}>
+                        <ul>
+                            {post.map(post => (
+                                <li key={post.id}>
+                                    <Card />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+            </main>
 
-            <div>Post 1</div>
-            <div>Post 2 </div>
-            <div>Post 3</div>
 
         </>
     )
