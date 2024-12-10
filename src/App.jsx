@@ -1,7 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Nav from "./Menu-Nav/Nav.jsx"
-import Header from "./assets/Layouts/Header/Header.jsx"
-import Footer from "./assets/Layouts/Footer/Footer.jsx"
+import DefaultLayout from "./assets/Layouts/DefaultLayout.jsx"
 import Home from "./assets/Pages/Home-Page.jsx"
 import About from "./assets/Pages/About-Us.jsx"
 import Posts from "./assets/Pages/Posts-List.jsx"
@@ -13,14 +11,17 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Posts" element={<Posts />} />
+          {/* Header y Footer are here */}
+          <Route element={<DefaultLayout />}> 
+
+            <Route path="/" element={<Home />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Posts" element={<Posts />} />
+
+          </Route>
+
         </Routes >
-        <Footer />
       </BrowserRouter>
     </>
   )
