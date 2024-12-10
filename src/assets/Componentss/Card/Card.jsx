@@ -14,9 +14,9 @@ export default function Card({ post = {} }) {
                 </div>
                 <div className={style.bodyCard}>
                     <div>{name}</div>
-                        <ul>
-                            {post.tag.map((tag, index) => <li key={index}>{tag}</li>)}
-                        </ul>
+                    <ul>
+                        {post.tag.map((tag, index) => <li key={index}>{tag}</li>)}
+                    </ul>
                     <div>{tier}</div>
                     <div>{quality}</div>
                     <div>{description}</div>
@@ -24,6 +24,7 @@ export default function Card({ post = {} }) {
                         <button>Save</button>
                         <button>Elimina</button>
                     </div>
+                    <Link className='link' to={`/posts/${id}`}>See more</Link>
                 </div>
             </div>
 
