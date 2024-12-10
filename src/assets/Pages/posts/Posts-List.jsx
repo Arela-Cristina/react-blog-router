@@ -14,7 +14,7 @@ export default function Posts() {
         axios.get(`${BASE_URI}posts`)
             .then(res => {
                 setPosts(res.data)
-                console.log('data base', res.data)
+                // console.log('data base', res.data)
             })
             .catch(err => {
                 console.error(err)
@@ -36,7 +36,7 @@ export default function Posts() {
                         <ul>
                             {post.map(post => (
                                 <li key={post.id}>
-                                    <Card />
+                                    <Card post={post} />
                                 </li>
                             ))}
                         </ul>
