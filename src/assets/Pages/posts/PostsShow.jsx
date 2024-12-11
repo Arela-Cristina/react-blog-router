@@ -18,8 +18,10 @@ export default function Show() {
         console.log("chiamata HTTP API...");
         axios.get(`${BASE_URI}posts/${id}`)
             .then(res => {
-                setPost('ricevuto', res.data)
-                console.log('hey', res.data)
+                setPost(res.data) //la funzione solo puo ricevere una
+                // console.log('hey', res.data)
+                console.log(`url de la img: ${BASE_URI}images/${post.thumb}`)
+
             })
             .catch(err => console.error(err))
     }, [id]);
@@ -27,6 +29,7 @@ export default function Show() {
     if (!post) {
         return <p>Loading...</p>;
     }
+
 
 
 
@@ -41,7 +44,7 @@ export default function Show() {
 
 
                 <figure>
-                    <img src={post.thumb ? `${BASE_URI}images/${post.thumb}` : placeHolderImg} alt="" />
+                    <img src={post.published ? `${BASE_URI}images/${post.thumb}` : placeHolderImg} alt={post.name} />
                 </figure>
                 <div>
                     <h1>{post.name}</h1>
